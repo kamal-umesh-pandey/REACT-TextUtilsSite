@@ -1,0 +1,16 @@
+.actionBtns {
+  display: flex;
+  justify-content: left;
+  align-items: start;
+}
+.actionBtn1 {
+  margin-right: 5px;
+}
+.text-summary{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
+.text-details{
+    padding-right: 6px;
+}
