@@ -22,9 +22,8 @@ export default function TextForm(props) {
   };
 
   const handleCopyText = () => {
-    var text = document.getElementById('mytextBox');
-    text.select();
-    navigator.clipboard.writeText(text.value);
+    navigator.clipboard.writeText(text);
+    document.getSelection().removeAllRanges();
     props.showAlert('success', 'text has been copied');
   };
 
@@ -51,7 +50,7 @@ export default function TextForm(props) {
   return (
     <>
       <div className="container my-3">
-        <h2 style={{color:props.switchMode==='light'?'black':'white'}}>{props.heading}</h2>
+        <h2 className="mb-4" style={{color:props.switchMode==='light'?'black':'white'}}>{props.heading}</h2>
         <div className="mb-3">
           <textarea
             className="form-control"
@@ -62,24 +61,24 @@ export default function TextForm(props) {
             style={{backgroundColor:props.switchMode==='light'?'white':'#80808042',color:props.switchMode==='light'?'black':'white'}}
           ></textarea>
         </div>
-        <div className="actionBtns">
+        <div>
           <button
-            className="btn btn-primary actionBtn1"
+            className="btn btn-primary mx-1 my-1"
             onClick={handleUpperCase}
             disabled={!text}
           >
             Convert Text To Uppercase
           </button>
-          <button className="btn btn-primary actionBtn1" onClick={handleLoweCase} disabled={!text}>
+          <button className="btn btn-primary mx-1 my-1" onClick={handleLoweCase} disabled={text.length === 0}>
             Convert Text To Lower Case
           </button>
-          <button className="btn btn-primary actionBtn1" onClick={handleCopyText} disabled={!text}>
+          <button className="btn btn-primary mx-1 my-1" onClick={handleCopyText} disabled={text.length === 0}>
             Copy Text
           </button>
-          <button className="btn btn-primary actionBtn1" onClick={handleExtraSpaces} disabled={!text}>
+          <button className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces} disabled={text.length === 0}>
             Handle Text Spaces
           </button>
-          <button className="btn btn-primary actionBtn1" onClick={clearText} disabled={!text}>
+          <button className="btn btn-primary mx-1 my-1" onClick={clearText} disabled={text.length === 0}>
             Clear Text
           </button>
         </div>
@@ -87,11 +86,11 @@ export default function TextForm(props) {
       <div className="container my-2" style={{color:props.switchMode==='light'?'black':'white'}}>
         <h2>Your Text Summary</h2>
         <div className="text-summary">
-          <p className="text-details">{text.split(" ").length} words</p>
+          <p className="text-details">{text.split(/\s+/).filter((elemnt) => {return elemnt.length !== 0}).length} words</p>
           <p>{text.length} characters</p>
         </div>
         <div>
-          <p>{0.008 * text.split(" ").length} takes times to read the text</p>
+          <p>{0.008 * text.split(" ").filter((elemnt) => {return elemnt.length !== 0}).length} takes times to read the text</p>
         </div>
       </div>
       <div className="container my-2" style={{color:props.switchMode==='light'?'black':'white'}}> 
