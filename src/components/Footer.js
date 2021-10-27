@@ -8,7 +8,7 @@ export default function Footer(props) {
       <div className="container">
         <div className="row" style={{justifyContent:"center"}}>
           <div className="col-sm-12 col-md-6">
-            <h6 style={{textAlign: "center",color:props.switchMode==='light'?'black':'white'}}>About</h6>
+            <h6 style={{textAlign: "center",color:props.switchMode==='light'?'black':'white'}}>About Us</h6>
             <p className="text-justify" style={{color:props.switchMode==='light'?'black':'white'}}>
               Text Utils is a word counter or character counter utility which can
               be used to manipulate your text in the way you want. You can
