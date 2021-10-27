@@ -4,16 +4,25 @@ import "./TextForm.css";
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
+
+  const scrollSmoth = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   const handleUpperCase = () => {
     let newText = text.toUpperCase();
     setText(newText);
     props.showAlert("success", "converted to uppercase");
+    scrollSmoth();
   };
 
   const handleLoweCase = () => {
     let newText = text.toLowerCase();
     setText(newText);
     props.showAlert("success", "converted to lowercase");
+    scrollSmoth();
   };
 
   const handleDetectChange = (event) => {
@@ -24,21 +33,25 @@ export default function TextForm(props) {
     navigator.clipboard.writeText(text);
     document.getSelection().removeAllRanges();
     props.showAlert("success", "text has been copied");
+    scrollSmoth();
   };
 
   const handleExtraSpaces = () => {
     var newStr = text.split(/[ ]+/);
     setText(newStr.join(" "));
     props.showAlert("success", "Extra spaces removed");
+    scrollSmoth();
   };
 
   const clearText = () => {
     setText("");
     props.showAlert("success", "all text has been cleared");
+    scrollSmoth();
   };
 
   const convertFirstCharcCaps = () => {
     setText(text.charAt(0).toUpperCase() + text.slice(1));
+    scrollSmoth();
   };
   /*
     in React to set text as it is a functionall based component to set value we have to use other
@@ -156,6 +169,12 @@ export default function TextForm(props) {
               : "Enter something in the text-box above to preview it here"}
           </p>
         </div>
+      </div>
+      <div className="container go-up-page" onClick={scrollSmoth}>
+        <i
+          className="fa fa-arrow-up appearance-change"
+          style={{ color: props.switchMode === "light" ? "#818a91" : "white" }}
+        ></i>
       </div>
     </>
   );
