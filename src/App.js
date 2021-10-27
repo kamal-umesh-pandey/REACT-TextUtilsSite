@@ -1,13 +1,14 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Alert from "./components/Alert";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 
 function App() {
   const [mode, setMode] = useState("light");
+  const [headerText, setHeaderText] = useState("Try TextUtils - Word Counter, Character Counter, Remove extra spaces !!!");
   const [alert, setAlert] = useState(null);
 
   const showAlert = (alertType, alertMessage) => {
@@ -45,7 +46,7 @@ function App() {
         ></Navbar>
         <Alert alert={alert}></Alert>
         <TextForm
-          heading="Try TextUtils - Word Counter, Character Counter, Remove extra spaces !!!"
+          heading={headerText}
           switchMode={mode}
           showAlert={showAlert}
         />

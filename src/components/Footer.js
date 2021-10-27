@@ -10,7 +10,7 @@ export default function Footer(props) {
           <div className="col-sm-12 col-md-6">
             <h6 style={{textAlign: "center",color:props.switchMode==='light'?'black':'white'}}>About</h6>
             <p className="text-justify" style={{color:props.switchMode==='light'?'black':'white'}}>
-              TextUtils is a word counter or character counter utility which can
+              Text Utils is a word counter or character counter utility which can
               be used to manipulate your text in the way you want. You can
               remove extra spaces, copy the manipulated text as well as convert
               text from Uppercase to Lowercase and Lowercase to Uppercase
@@ -18,25 +18,20 @@ export default function Footer(props) {
           </div>
         </div>
         <hr />
-      </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-8 col-sm-6 col-xs-12">
-            <p className="copyright-text">
-              Copyright &copy; 2021 All Rights Reserved by
-              <a href="#"> Kamal Pandey </a>.
-            </p>
-          </div>
-
-          <div className="col-md-4 col-sm-6 col-xs-12" style={{textAlign:"center"}}>
-            <ul className="social-icons">
+        <div className="row" style={{justifyContent:"center"}}>
+        <div className="col-sm-12 col-md-8" style={{position:"relative"}}>
+        <p style={{textAlign: "center",color:props.switchMode==='light'?'black':'white'}}>&copy; Rights Text Utils. All Rights Reserved</p>
+        <p style={{textAlign: "center",color:props.switchMode==='light'?'black':'white'}}>Created By Kamal Umesh Pandey</p>
+        <div className="social-links">
+            <ul className="social-icons" >
               <li>
-                <a className="linkedin" href="https://www.linkedin.com/in/kamal-pandey-505471124">
+                <a className="linkedin"  href="https://www.linkedin.com/in/kamal-pandey-505471124">
                   <i className="fa fa-linkedin"></i>
                 </a>
               </li>
             </ul>
           </div>
+        </div>
         </div>
       </div>
     </footer>
